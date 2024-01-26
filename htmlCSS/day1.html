@@ -1,14 +1,26 @@
-<p>
-	HTML은 요소 안에 
-	<strong>다른 요소</strong>가 들어갈 수 있습니다
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
 
-<!-- 잘못 사용된 예 -->
-<p>
-	HTML은 요소 안에 
-	<strong>다른 요소 가 들어갈 수 있습니다
-</p>
-</strong>
 
-<!--  -->
+<!-- O -->
+<div>
+	블록요소 안
+	<span>인라인요소 중첩 가능</span>
+</div>
+
+<!-- X -->
+<span>
+	인라인요소 안
+	<div>블록요소 중첩 불가능</div>
+</span>
 
