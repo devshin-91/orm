@@ -1,0 +1,518 @@
+
+
+// 변수
+
+/*
+var 기본적으로 변수 사용하는 데 사용 
+let은 변해도 되는 변수를 선언하는 데 사용
+const는 변화면 안되는 것들을 변수로 선언하는 데 사용
+변하면 안 되는 것 : 환경변수, 프로젝트 환경에서 전역에 저장해서 사용하는 변수, 서버에서 전달하는 API 주소
+*/
+
+<!-- 변수 할당
+valueA = 1;
+const my_name ="WADE";
+
+if(true){ // -- 코드블록의 시작입니다. -- //
+
+	let valueB = 'Hello!';
+	const my_name ="WADE";       // 코드블록 밖의 my_name과 별개의 상수입니다.
+
+} // -- 코드블록의 끝입니다. -- //
+
+valueB = 'nice to meet you!';  // 변수 정의 이전에 값을 할당 할 수 없습니다!
+let valueB = 'Hi!';            // 코드블록 안의 valueB와 별개의 변수입니다.
+-->
+
+<!-- 변수에 값 추가  
+
+참조하는 값은 변경 가능!
+// []은 참조 자료형
+const values = []; // [] 이 배열의 주소를 참조 => 배열 안의 값이 바뀌어도 상관 x
+values.push(10); // 파이썬의 append
+
+값을 참조하는 원시 자료형은 변경 불가!
+-->
+
+// 함수
+
+<!-- 
+// 함수 기본 형태 : function + 제목 + () + {}
+function 함수1 (a, b, c){
+    return a + b + c
+}
+
+// 콘솔창의 기능이에요. 마지막 라인에 한하여 console.log()를 찍지 않아도 return값을 console창에 출력해줍니다.
+함수1(10, 20, 30) 
+함수1(10, 20, 50)
+
+// 다음 실행 값은?
+console.log(함수1(10, 20, 30))
+console.log(함수1(10, 20, 50))
+// // console.log(파라미터) : 콘솔이라는 객체의 log라는 것을 실행!
+
+// 필요 이상의 아규먼트를 넣었을 때
+함수1(10, 20, 30, 40) // Error를 뿜지 않습니다. 60
+
+// 필요 이하의 아규먼트를 넣었을 때
+함수1(10, 20)
+
+/*
+function 함수1 (a, b, c){
+    return a + b + String(c)
+}
+함수1(10, 20) // '30undefined'
+*/
+// return : 값을 반환. 즉 함수 밖으로 꺼낸다.
+// return 키워드 밑에 코드를 쓰는 경우가 있다?! ; 조건문인 경우!
+-->
+
+
+/*
+함수 사용 이유
+1. 재사용성 높음
+2. 유지보수 용이
+3. 구조 파악 용이
+*/
+
+<!--  
+// 함수 선언하는 방법 - 함수 선언문 / 함수 표현식(파이썬의 lambda와 유사해보이나 다름) / 화살표 함수 / 즉시실행함수
+// 1. 함수 선언문
+function sum(x, y){
+  return x + y;
+}
+
+// 2. 함수 표현식
+// (파이썬의 lambda와 유사해보이나 다름)
+let sumXY = function(x, y){
+    return x + y;
+  };
+  console.log(sum(10, 20));
+  console.log(sumXY(10, 20));
+
+// var에서 호이스팅 현상이 발생하고, let과 const는 호이스팅 현상이 발생하지 않음.
+
+// 3. 화살표함수
+// 화살표 함수도 일단 표현식
+// 읽어볼만한 문헌 : https://ko.javascript.info/arrow-functions-basics
+// 화살표 함수도 앞에 함수명이 존재해야함.
+
+/*
+function 함수1(x, y) {
+    return x + y
+}
+// 위 함수를 화살표 함수로 작성하면 아래와 같습니다.
+let 함수1 = (x, y) => x + y
+
+// 전달인자가 하나만 있는 경우 소괄호 생략도 가능하다.
+// 용도 : 함수를 빠르게 실행시키고 버려야 할 때 
+let 함수2 = x => x + 10
+# 하지만 이렇게 줄이면 해석에 불편함이 있어서 원래 방식을 쓰는 것을 권장
+
+// 화살표 함수 내부에서 한 줄 표현식만 반환한다면 return 키워드를 생략해도 됩니다.
+let 함수3 = x => x + 10
+
+let 결과 = 함수3(2);
+
+console.log(결과);
+*/
+
+
+// 4. 즉시실행함수
+(function() {
+  console.log('이 함수는 만들어지자마자 바로 실행됩니다!');
+})();
+
+
+(function() {
+	document.querySelector(".btn").addEventListener("click", function(){ 
+	console.log('click!')
+	});
+})();
+-->
+
+
+// 조건문과 반복문
+
+/*
+조건문, 반복문 
+Truthy, Falsy?
+True의 의미를 가지고 있는 것 => Truthy
+False의 의미를 가지고 있는 것 => Falsy
+
+Falsy의 예 : 빈 문자열, NaN, NULL, undefined, false, 0
+isNaN(10);
+=> false
+*/
+
+// 1. 조건문
+// 1.1 if문
+
+<!--  
+if (조건식) {
+	// 조건식에 들어가는 것이 Truthy면 실행! Falsy면 실행 X
+}
+*/
+
+let test=5;
+if(test < 10){
+	//codes
+}
+
+
+// 중괄호 안의 코드가 한 줄 뿐이면 if문도 마찬가지로 중괄호를 생략가능
+if (true) console.log("중괄호를 생략했습니다.");
+
+// if-else 문 
+
+let x = 3;
+let y = 7;
+
+if(x == y){
+  document.write('if문으로 실행되었습니다.');
+} else{
+  document.write('else문으로 실행되었습니다.');
+}
+
+// 예시 코드
+let score = 69;
+let money = 1000;
+
+if (score > 90){
+  document.write('참 잘했습니다!<br>');
+  money += 100000
+} else if (score > 80){
+  document.write('잘했습니다!<br>');
+  money += 10000
+} else if (score > 70){
+  document.write('했습니다!<br>');
+  money += 1000
+} else {
+  money = 0
+}
+
+document.write(money);
+-->
+
+// 1.2 삼항연산자
+// if(조건식 ? 조건식이 Truthy일 떄 실행될 코드 : Falsy면 실행될 코드)
+<!--  
+let item = true ? console.log('true') : console.log('false');
+console.log(item);
+
+// 다른 예
+let item = true ? 100 : 200;
+console.log(item);
+
+// 구체적인 예
+let price = 5000;
+
+let message = (price>6000) ? '비싸요!' : 
+							(price<3000) ? '엄청싸요!' : '적당해요!';
+
+// 위의 코드는 아래와 같다.
+let price = 5000;
+let message = '';
+
+if (price > 6000) {
+		message = '비싸요!';
+} else if (price < 3000) {
+		message = '엄청싸요!';
+} else {
+		message = '적당해요!';
+}
+-->
+
+// 1.3 switch-case 문
+
+/*
+객체 : 왜 있음? 실세계의 상태를 모방하기 위해. 하나의 사물에 대한 정보를 프로그래밍으로 표현하기 위해
+
+멤버와 메서드
+멤버 : 객체가 가지고 있는 상태. 즉, 객체 안에 들어있는 변수
+메서드 : 객체 안에 들어있는 함수
+*/
+
+// switch-case
+// swith의 조건문이 case가 일치하는 경우 코드를 실행
+<!--  
+switch (new Date().getDay()) {
+    case 1:
+      document.write('월요일입니다.');
+      break;
+    case 2:
+      document.write('화요일입니다.');
+      break;
+    case 3:
+      document.write('수요일입니다.');
+      break;
+    case 4:
+      document.write('목요일입니다.');
+      break;
+    case 5:
+      document.write('금요일입니다.');
+      break;
+    default:
+      document.write('금금요일입니다. 주말이 뭐죠?');
+      break;
+}
+// 위 코드에서 모든 case에 break을 넣어줌.
+// 만일 break을 넣지 않는다면? 탈출하지 않고 모든 코드들을 순차적으로 전부 실행.
+
+// break 넣지 않은 경우
+let price = 0;
+let menu = '카페라떼'; // 메뉴를 바꿔보세요!
+
+switch (menu) {
+		case '아메리카노':
+				price = 4000;
+	  case '카페라떼':
+				price = 5000;
+		case '바닐라라떼':
+				price = 6000;
+	  case '콜드브루':
+				price = 5500;
+		case '딸기라떼':
+				price = 7000;
+	  case '레몬에이드':
+				price = 6500;
+		case '에스프레소':
+				price = 3500;
+	  case '루이보스':
+				price = 4500;
+		default:
+				console.log('메뉴를 정확히 입력하세요.');
+}
+-->
+
+// 포맷팅
+/*
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Text_formatting
+const five = 5;
+const ten = 10;
+console.log(`Fifteen is ${five + ten} and not ${2 * five + ten}.`);
+// "Fifteen is 15 and not 20."
+*/
+
+// 2. 반복문
+<!--  
+// 2.1 for문 활용 => 배열의 원소를 접근
+
+const cars2 = ["BMW"m "Volvo"]
+let test2= ''
+for (let i = 0; i M cars2.length; i++) {
+	text2 += '<section><h2>' + cars2[i] + '</h2></section>'
+}
+test2
+
+// 2.2 do-while 반복문
+// while을 쓰기 전에 do로 일단 한 코드를 실행시켜보는 것
+
+let input;
+
+do {
+  input = prompt("숫자를 입력하세요.");
+} while (isNaN(input));
+
+console.log("입력한 숫자는 " + input + "입니다.");
+
+
+// 2.3 반복문의 break 와 continue
+// break : 특정한 조건에서는 멈춤
+// continue : 특정한 조건에서는 반복 단계를 건너뛰겠다.
+
+// 예시 1
+let num = 0;
+while (num < 11) {
+ num++;
+ document.write(num, '<br>');
+ if(num > 5){
+   break;
+ }
+}
+
+// 예시 2
+let i = 0;
+while (i < 100) {
+		i++;
+	if (i === 14) {
+			console.log(i + '살 부터 중학생이 됩니다.');
+			break;
+	}
+}
+console.log('중학교 입학을 축하합니다');
+
+
+// 예시 3
+for (let i = 0; i < 20; i++) {
+		if (i < 13) continue;
+		console.log(i + '살은 청소년입니다.');
+}
+-->
+
+// 타입
+
+// 1. 원시타입 : strin, number, bigint, boolean, undefined, symbol, null 등
+<!--  
+// 값 자체를 복사해서 그 값의 주소를 참조
+// 값의 주소를 공유 X. 독립적
+let str1 = 'hello';
+let str2 = str1; 
+console.log(str2); // 'hello' 
+
+/*
+str2가 str1의 값을 복사하면서 그 값을 참조하는 새로운 주소가 생성됨.
+=> str1과 str2는 완전히 독립적
+str1의 값이 변해도 str2의 주소가 다르기에 str2의 값은 변하지 않음.
+*/
+
+str1 = 10;
+str2 ;// 'hello'
+-->
+
+2. 객체타입
+<!--  
+// 객체는 프로퍼티로 값과 메서드를 가짐.
+// 객체는 값 자체가 아니라 주소를 복사
+// => 같은 주소를 참조 => 주소를 공유
+// => 기존의 arr의 값이 변경되면 복사본 arr2의 값도 변경됨.
+
+// 멤버 변수 : 함수로 실행하지 않는 변수
+// ex) length
+
+[0, 1, 2, 3, 4].length
+
+'123' // 값 자체 != 객체 자료형
+
+// 하지만 값 자체도 사용가능한 메서드가 존재.
+
+// 소문자 -> 대문자
+let val = 'hello';
+console.log(val.toUpperCase());
+
+// 실제 내부 실행되는 코드
+let val = 'hello';
+let temp = new String('hello');
+console.log(temp.toUpperCase());
+temp = null; // 메모리 상에서 지움
+
+// 원시자료형은 값 자체여서 객체가 아니지만 마치 객체처럼 메서드를 사용가능하게 하는 함수들이 지정되어 있음.
+
+// 자바스크립트는 없는 원소에도 접근하는게 가능하다. 다만 없는 경우에는 undefined가 출력
+
+new String('hello');
+[0, 1, 2, 3, 4][6] // undefined
+
+let arr = [0, 1, 2, 3, 4];
+arr.push(5); // 파이썬의 append
+arr // [0, 1, 2, 3, 4, 5, 6]
+
+# 배열 안에 배열을 넣어 다차원 배열도 만들 수 있다.
+-->
+
+// 3. 배열의 메서드
+<!--  
+1. push()와 pop()
+
+2. shift()와 unshift
+- push(), pop()과는 반대로 첫번째 원소를 대상으로 함.
+3. splice()
+- splice(삭제나 추가를 할 index, 삭제할 대상의 갯수, 추가할 요소) / 삭제할 대상의 갯수가 0이면 아무것도 삭제하지 않은다.
+- 3개의 전달 인자를 받아 원소를 추가, 삭제, 업데이트
+const arr = [1, 2, 3];
+arr.splice(1, 0, 4); // 추가
+console.log(arr); // [1, 4, 2, 3]
+arr.splice(2, 1, 5); // 업데이트 
+console.log(arr); // [1, 4, 5, 3]
+arr.splice(2, 1) // 추가할 요소가 없는 경우, 2개의 전달인자만 받아 삭제 진행 가능
+console.log(arr); // 삭제
+
+4. slice [파이썬의 인덱싱과 비슷]
+
+원본데이터를 손상시키지말자. 손상시키면 정작 원본 데이터가 필요할 때 사용할 수 없게 된다.
+
+5. sort 파이썬과 비슷해보이나 다른 점이 있음.
+# https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+const num2 = [23, 5, 1000, 42];
+console.log(num2.sort()); // 1000, 23, 42, 5 ????
+// 정렬이 저렇게 된 이유는 js의 sort는 정수형을 문자열로 바꾼뒤 유니코드 포인트의 순서대로 정렬해서...
+
+그럼 어떻게 하면 제대로 정렬할 수 있나? -> 비교함수를 사용해야함.
+const num3 = [13, 9 ,10];
+
+num3.sort(function (a, b) {
+  console.log('a: ' + a, 'b: ' + b);
+  return a - b; 
+}); // 두 가지 원소를 뺴봐서 음수가 나오면 b가 더 크기 떄문에 b를 뒤로 뺌. 양수가 나오면 b를 앞으로 뺌
+
+- 만일 내림차순 정렬로 하고자한 다면 a와 b의 위치를 변경
+const num3 = [13, 9 ,10];
+
+num3.sort(function (a, b) {
+  console.log('a: ' + a, 'b: ' + b);
+  return b - a; 
+}); 
+/**
+"a: 9"
+"b: 13" // a - b는 음수임으로 a를 앞으로 => [9, 13, 10]
+
+"a: 10"
+"b: 9" // a - b는 양수임으로 b를 앞으로 => [9, 13, 10]
+
+"a: 10"
+"b: 13" // a - b는 음수임으로 a를 앞으로 => [9, 10, 13]
+
+"a: 10"
+"b: 9" // a - b 는 양수임으로 b를 앞으로 => [9, 10, 13]
+*/
+
+6. forEach()
+배열의 갯수만큼 순환하면서 각 배열의 요소에 접근
+const arr = ['참외', '키위', '감귤'];
+arr.forEach(function(item, index) {
+  console.log(item, index);
+    arr[index] = index;
+});
+
+// 결과
+// 참외 0
+// 키위 1
+// 감귤 2
+
+
+const avengers = ['spiderman', 'ironman', 'hulk', 'thor'];
+
+const newAvengers = [];
+avengers.forEach(function (item) {
+    newAvengers.push('💖' + item + '💖');
+});
+
+
+7. map() // 파이썬의 map과 유사
+const arr = [1, 2, 3]
+const newArr = arr.map(function(item, index) {
+  return item * index;
+});
+
+- 잉? 그럼 forEach랑 기능이 같은 거 아니야? 다름. 
+- forEach는 함수 내에서 작동만하고 아무것도 반환하지 않음. 그래서 결과를 쓰려면 별도의 함수를 또 써야함.
+- map 같은 경우 처리된 결과를 반환하여 새로운 배열을 생성.
+- 단, map은 반드시 return이 필요하다.
+- 용도로 따지자면 결과가 필요없을 때는 forEach, 결과가 필요있을때는 map을 사용
+
+- 이러한 이유로 map을 더 많이 씀
+
+# 한줄로 축약도 가능. 
+const arr = [1, 2, 3];
+const anewArr = arr.map(item => item+1); // 한 줄로 축약하는 경우 return 값도 필요가 없음.
+
+console.log(newArr);
+
+8. filter (파이썬의 filter와 비슷. 하지만 파이썬보다 사용하기 더 편함)
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const newArr = arr.filter(function(el) {
+  return el % 2 === 0;
+});
+
+console.log(newArr); // [2, 4, 6, 8, 10]
+-->
