@@ -31,7 +31,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", index),
     path("about/", about),
-    path("notice/<int:pk>", notice),
+    path("notice/<int:pk>/", notice),
     path("user/<str:s>/", user),
     # path("notice/1/", notice_1),
     # path("notice/2/", notice_2),
